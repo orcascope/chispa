@@ -61,7 +61,7 @@ def check_type_equal_ignore_nullable(sf1, sf2):
     if dt1.typeName() == dt2.typeName():
         # Account for array types by inspecting elementType.
         if dt1.typeName() == 'array':
-            return dt1.elementType == dt2.elementType
+            return str(dt1.elementType).replace("false", "true") == str(dt2.elementType).replace("false", "true")
         elif dt1.typeName() == 'struct':
             return are_structfields_equal(sf1, sf2, True)
         else:
