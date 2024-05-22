@@ -38,7 +38,7 @@ def assert_basic_rows_equality(rows1, rows2, underline_cells=False, formats=Defa
 
                 t.add_row([r1_res, r2_res])
         if all_rows_equal == False:
-            raise chispa.DataFramesNotEqualError("\n" + t.get_string())
+            raise chispa.DataFramesNotEqualError("\n" + t)
 
 
 def assert_generic_rows_equality(rows1, rows2, row_equality_fun, row_equality_fun_args, underline_cells=False, formats=DefaultFormats()):
