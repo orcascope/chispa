@@ -22,7 +22,7 @@ def assert_basic_rows_equality(rows1, rows2, underline_cells=False, formats=Defa
                 t.add_row([format_string(r1, formats.mismatched_rows), None])
                 all_rows_equal = False
             else:
-                r_zipped = list(six.moves.zip_longest(r1.__fields__, r2.__fields__))
+                r_zipped = list(six.moves.zip_longest(r1._fields, r2._fields))
                 r1_string = []
                 r2_string = []
                 for r1_field, r2_field in r_zipped:
@@ -54,12 +54,12 @@ def assert_generic_rows_equality(rows1, rows2, row_equality_fun, row_equality_fu
             t.add_row([format_string(r1, formats.mismatched_rows), format_string(r2, formats.mismatched_rows)])
         # rows are equal
         elif row_equality_fun(r1, r2, *row_equality_fun_args):
-            r1_string = ", ".join(map(lambda f: f"{f}={r1[f]}", r1.__fields__))
-            r2_string = ", ".join(map(lambda f: f"{f}={r2[f]}", r2.__fields__))
+            r1_string = ", ".join(map(lambda f: f"{f}={r1[f]}", r1._fields))
+            r2_string = ", ".join(map(lambda f: f"{f}={r2[f]}", r2._fields))
             t.add_row([format_string(r1_string, formats.matched_rows), format_string(r2_string, formats.matched_rows)])
         # otherwise, rows aren't equal
         else:
-            r_zipped = list(six.moves.zip_longest(r1.__fields__, r2.__fields__))
+            r_zipped = list(six.moves.zip_longest(r1._fields, r2._fields))
             r1_string = []
             r2_string = []
             for r1_field, r2_field in r_zipped:
