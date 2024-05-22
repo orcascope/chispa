@@ -2,7 +2,8 @@ import chispa.six as six
 from chispa.prettytable import PrettyTable
 from chispa.bcolors import *
 import chispa
-from pyspark.sql.types import Row
+# from pyspark.sql.types import Row
+from snowflake.snowpark import Row
 from typing import List
 from chispa.terminal_str_formatter import format_string
 from chispa.default_formats import DefaultFormats
