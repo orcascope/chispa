@@ -1,4 +1,5 @@
-from pyspark.sql import Row
+# from pyspark.sql import Row
+from snowflake.snowpark import Row
 from chispa.number_helpers import nan_safe_equality, nan_safe_approx_equality
 import math
 
