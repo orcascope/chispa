@@ -1,4 +1,9 @@
 def format_string(input, formats):
+    for fmt in formats:
+        if fmt == 'red':
+            return ":red["+input+"]"
+    return input
+def no_format_string(input, formats):
     formatting = {
         "nc": '\033[0m',  # No Color, reset all
         "bold": '\033[1m',
